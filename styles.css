@@ -1,0 +1,97 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f2f2f2;
+}
+
+h1 {
+    font-size: 40px;
+}
+
+#pokemonInput {
+    padding: 10px;
+    font-size: 16px;
+}
+
+#botonBuscar {
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.pokemon-card {
+    width: 350px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 15px;
+    box-sizing: border-box;
+}
+.pokemon-card {
+    width: 350px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 15px;
+    box-sizing: border-box;
+}
+
+.stats {
+    width: 100%;
+}
+
+.stat {
+    width: 100%;
+    margin: 12px 0;
+}
+
+.stat-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 4px;
+}
+
+.pokemon-image {
+    width: 180px;
+}
+
+.types {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.type {
+    padding: 5px 12px;
+    border-radius: 20px;
+    background-color: #ddd;
+}
+
+.stat {
+    display: flex;
+    justify-content: space-between;
+    margin: 8px 0;
+}
+.stat {
+    margin: 12px 0;
+}
+
+.stat-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 4px;
+}
+
+.stat-bar {
+    width: 100%;
+    height: 10px;
+    background-color: #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.stat-fill {
+    height: 100%;
+    background-color: #4caf50;
+    border-radius: 10px;
+}
