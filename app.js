@@ -32,13 +32,33 @@ const estadisticas = data.stats.map(stat => {
             </div>
 
             <div class="stat-bar">
-                <div class="stat-fill" style="width: ${porcentaje}%"></div>
+                <div class="stat-fill ${stat.stat.name}" style="width: ${porcentaje}%"></div>
             </div>
         </div>
     `;
    
 })
 const tipos = data.types.map(tipo => tipo.type.name);
+const nombresTipos = {
+    normal: "Normal",
+    fire: "Fuego",
+    water: "Agua",
+    electric: "Eléctrico",
+    grass: "Planta",
+    ice: "Hielo",
+    fighting: "Lucha",
+    poison: "Veneno",
+    ground: "Tierra",
+    flying: "Volador",
+    psychic: "Psíquico",
+    bug: "Bicho",
+    rock: "Roca",
+    ghost: "Fantasma",
+    dragon: "Dragón",
+    dark: "Siniestro",
+    steel: "Acero",
+    fairy: "Hada"
+};
 const nombrePokemon = data.name.charAt(0).toUpperCase() + data.name.slice(1);
 pokemonInfo.innerHTML = `
     <div class="pokemon-card">
@@ -48,7 +68,7 @@ pokemonInfo.innerHTML = `
         <img class="pokemon-image" src="${data.sprites.front_default}">
 
         <div class="types">
-            ${tipos.map(tipo => `<span class="type">${tipo}</span>`).join("")}
+            ${tipos.map(tipo => `<span class="type ${tipo}">${nombresTipos[tipo]}</span>`).join("")}
         </div>
 
         <h3>Estadísticas</h3>
