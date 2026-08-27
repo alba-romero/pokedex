@@ -1,32 +1,54 @@
 body {
     font-family: Arial, sans-serif;
     text-align: center;
-    background-color: #f2f2f2;
+    background-color: #e8f4ff;
+    color: #222;
 }
 
 h1 {
-    font-size: 40px;
+    font-family: "Press Start 2P", cursive;
+    font-size: 32px;
+    color: #e3350d;
+    margin-bottom: 30px;
+}
+#pokemonInput {
+    padding: 12px;
+    font-size: 16px;
+    border: 2px solid #3b82f6;
+    border-radius: 10px;
+    outline: none;
 }
 
-#pokemonInput {
-    padding: 10px;
-    font-size: 16px;
+#pokemonInput:focus {
+    border-color: #e3350d;
 }
 
 #botonBuscar {
-    padding: 10px 15px;
+    padding: 12px 18px;
     font-size: 16px;
     cursor: pointer;
+    border: none;
+    border-radius: 10px;
+    background-color: #e3350d;
+    color: white;
+    font-weight: bold;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+#botonBuscar:hover {
+    background-color: #c52d0b;
+    transform: translateY(-2px);
 }
 
 .pokemon-card {
-    width: min(90%, 500px);
-    margin: 30px auto;
-    padding: 30px;
+    width: 350px;
+    margin: 40px auto;
+    padding: 25px;
     background-color: white;
     border-radius: 20px;
     box-sizing: border-box;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+    border-top: 6px solid #e3350d;
 }
 
 .pokemon-card h2 {
@@ -222,7 +244,7 @@ h1 {
     font-weight: bold;
 }
 
-#pokemonList {
+#pokemonLista {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 10px;
@@ -231,15 +253,20 @@ h1 {
 }
 
 .pokemon-list-item {
-    padding: 10px;
-    border: none;
-    border-radius: 10px;
+    padding: 12px 18px;
+    border: 2px solid #d6e9ff;
+    border-radius: 12px;
     background-color: white;
     cursor: pointer;
     font-size: 16px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-transform: capitalize;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+    transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
 }
 
 .pokemon-list-item:hover {
-    transform: translateY(-2px);
+    transform: translateY(-3px);
+    background-color: #fff4c2;
+    border-color: #f5c542;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.18);
 }

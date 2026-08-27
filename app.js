@@ -3,38 +3,20 @@ const input = document.getElementById("pokemonInput");
 const pokemonInfo = document.getElementById("PokemonInfo");
 const pokemonLista = document.getElementById("pokemonLista");
 
-// OBTENER LA LISTA DE POKÉMON
-fetch("https://pokeapi.co/api/v2/pokemon?limit=20")
-    .then(response => response.json())
-    .then(data => {
+// FUNCIÓN PARA MOSTRAR UN POKÉMON
 
-        data.results.forEach(pokemon => {
+function mostrarPokemon(pokemon) {
 
-            pokemonLista.innerHTML += `
-                <button class="pokemon-list-item">
-                    ${pokemon.name}
-                </button>
-            `;
-
-        });
-
-    });
-
-
-// BUSCAR UN POKÉMON CON EL BOTÓN
-boton.addEventListener("click", () => {
-
-    const pokemon = input.value.toLowerCase();
     const url = `https://pokeapi.co/api/v2/pokemon/${pokemon}`;
 
     fetch(url)
-        .then(Response => {
+        .then(response => {
 
-            if (!Response.ok) {
+            if (!response.ok) {
                 throw new Error("Pokémon no encontrado.");
             }
 
-            return Response.json();
+            return response.json();
 
         })
         .then(data => {
@@ -130,5 +112,49 @@ boton.addEventListener("click", () => {
         .catch(error => {
             pokemonInfo.innerHTML = `<p>${error.message}</p>`;
         });
+}
+
+// BOTÓN BUSCAR
+
+boton.addEventListener("click", () => {
+
+    const pokemon = input.value.toLowerCase();
+
+    mostrarPokemon(pokemon);
 
 });
+
+
+// OBTENER LA LISTA DE POKÉMON
+
+
+fetch("https://pokeapi.co/api/v2/pokemon?limit=20")
+    .then(response => response.json())
+    .then(data => {
+
+        data.results.forEach(pokemon => {
+
+            pokemonLista.innerHTML += `
+                <button class="pokemon-list-item" data-pokemon="${pokemon.name}">
+                    ${pokemon.name}
+                </button>
+            `;
+
+        });
+
+        const botonesPokemon =
+            document.querySelectorAll(".pokemon-list-item");
+
+        botonesPokemon.forEach(boton => {
+
+            boton.addEventListener("click", () => {
+
+                const pokemon = boton.dataset.pokemon;
+
+                mostrarPokemon(pokemon);
+
+            });
+
+        });
+
+    });
